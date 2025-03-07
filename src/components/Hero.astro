@@ -1,0 +1,264 @@
+---
+export interface Props {
+    title: string;
+    subtitle: string;
+    buttonText: string;
+    buttonLink: string;
+}
+
+const { title, subtitle, buttonText, buttonLink } = Astro.props;
+---
+
+<section id="hero">
+    <div class="hero-content">
+        <h1>{title}</h1>
+        <p>{subtitle}</p>
+        <a href={buttonLink} class="hero-button">{buttonText}</a>
+    </div>
+    <div class="rocket-container">
+        <img src="/assets/smoke2.svg" alt="Humo" class="smoke" />
+        <img src="/assets/rocket.svg" alt="Cohete" class="rocket" />
+    </div>
+</section>
+
+<style>
+    #hero {
+        position: relative;
+        /* height: 100vh; Mantiene la sección con el alto completo */
+        min-height: clamp(
+            60vh,
+            95vh,
+            100vh
+        ); /* 🔹 Se ajusta proporcionalmente */
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-end; /* 🔹 Empuja el contenido hacia abajo */
+        text-align: center;
+        padding: 40px 20px;
+        overflow: hidden; /* 🔹 Evita que el cohete sobresalga en algunas pantallas */
+
+        background:
+            url("/assets/FondoUniverso.svg") no-repeat center calc(20% - 69px),
+            linear-gradient(90deg, #4da8ae, #336e84, #1b3b5f);
+        color: white;
+
+        background-size: 100% auto; 
+        background-repeat: no-repeat;
+    }
+
+    .hero-content {
+        /* max-width: 800px; */
+        /* margin-bottom: -300px;
+        justify-content: flex-end;
+        flex-grow: 1;
+        position: relative;
+        z-index: 2; */
+
+        flex-grow: 1; /* 🔹 Hace que el contenido se expanda y quede en la parte inferior */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        width: 100%;
+        /* max-width: 800px; */
+        padding-bottom: 40px; /* 🔹 Ajusta la separación final */
+        z-index: 2;
+    }
+
+    h1 {
+        font-size: 4rem;
+        margin-bottom: -30px;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    p {
+        color: #7d4b00;
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-button {
+        margin-bottom: 60px;
+        background: white;
+        color: #333333;
+        box-shadow: 3px 3px 8px rgb(0 0 0 / 37%);
+        padding: 10px 20px;
+        text-decoration: none;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        transition:
+            background 0.3s ease,
+            color 0.3s ease;
+    }
+
+    .hero-button:hover {
+        background: #418e9b;
+        color: white;
+    }
+
+    .rocket-container {
+        position: absolute;
+        bottom: -9%;
+        left: 47%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 83%;
+        z-index: 0;
+    }
+
+    .smoke {
+        width: 180%;
+        max-width: 180%; /* Ajusta el tamaño del humo */
+        display: block;
+    }
+
+    .rocket {
+        position: absolute;
+        top: 32%;
+        left: 50%;
+        transform: translate(-51%, -63%);
+        width: 120px; /* Ajusta el tamaño del cohete */
+        z-index: 0;
+    }
+    @media (min-width: 1440px) and (max-width: 2560px) {
+        .rocket-container {
+            bottom: -50%;
+            left: 48%;
+        }
+        .rocket {
+            width: 12%;
+            transform: translate(-50%, -60%);
+            width: 130px; /* Ajusta el tamaño del cohete */
+        }
+        .hero-content {
+            margin-bottom: -650px;
+        }
+    }
+    @media (min-width: 1200px) and (max-width: 1440px) {
+        .rocket-container {
+            bottom: -40%;
+            left: 47%;
+            width: 81%;
+        }
+        .rocket {
+            width: 12%;
+            transform: translate(-50%, -60%);
+            width: 120px; /* Ajusta el tamaño del cohete */
+        }
+        .hero-content {
+            margin-bottom: -460px;
+        }
+    }
+
+    /* Pantallas grandes de Aipads*/
+    @media (min-height: 900px) and (min-width: 1200px) and (max-width: 1440px) {
+        .rocket-container {
+            bottom: -9%;
+            left: 48%;
+            width: 100%;
+        }
+        .rocket {
+            width: 14%;
+            transform: translate(-50%, -55%);
+            width: 140px; /* 🔹 Ajusta tamaño del cohete */
+        }
+        .smoke {
+            width: 150%;
+            max-width: 160%;
+        }
+        .hero-content {
+            margin-bottom: -400px; /* 🔹 Corrige la posición del contenido en pantallas altas */
+        }
+    }
+    @media (max-height: 1200px) and (min-width: 1023px) and (max-width: 1200px) {
+        #hero {
+            background-size: 100% auto; /* 🔹 Aumenta el ancho en pantallas grandes */
+            background-position: center calc(30% - 50px); /* 🔹 Ajusta en pantallas grandes */
+        }
+        .hero-content {
+            margin-bottom: 20%;
+        }
+        .smoke {
+            width: 180%;
+            max-width: 180%;
+        }
+        .rocket-container {
+            /* bottom: -2%; */
+        }
+    }
+
+    @media (max-height: 800px) and (min-width: 1023px) and (max-width: 1200px) {
+        #hero {
+            background-size: 100% auto; /* 🔹 Aumenta el ancho en pantallas grandes */
+            background-position: center calc(30% - 50px); /* 🔹 Ajusta en pantallas grandes */
+        }
+        .hero-content {
+            margin-bottom: -40%;
+        }
+        .smoke {
+            width: 180%;
+            max-width: 180%;
+        }
+        .rocket-container {
+            /* bottom: -2%; */
+        }
+    }
+
+    /* Responsivo */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        h1 {
+            font-size: 3.3rem;
+            margin-bottom: -20px;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+
+        .hero-button {
+            font-size: 1rem;
+            padding: 8px 16px;
+        }
+        .hero-content {
+            margin-bottom: -60%;
+        }
+        #hero {
+            background-size: 100% auto; /* 🔹 Ajusta en tablets */
+            background-position: center calc(28% - 40px); /* 🔹 Sube un poco más */
+        }
+
+        .rocket-container {
+            /* bottom: -2%; */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .rocket-container {
+            bottom: -3%;
+            left: 48%;
+            width: 132%;
+        }
+        #hero {
+            background-position: center calc(20% - 30px); /* 🔹 Ajusta en móviles */
+            background-size: 125% auto;
+        }
+        .hero-content {
+            margin-bottom: 20%;
+        }
+        h1 {
+            font-size: 2.7em;
+            margin-bottom: -20px;
+        }
+        p{
+            font-size: 1.1rem;
+        }
+        .rocket {
+            width: 80px;
+        }
+    }
+</style>

@@ -1,0 +1,203 @@
+<section class="contact-section">
+    <div class="contact-container">
+        <!-- 🔹 Formulario de Contacto -->
+        <div class="contact-form">
+            <h2>Contáctanos</h2>
+            <form>
+                <div class="input-group">
+                    <label for="name">Nombre</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Tu Nombre"
+                        required
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Tu Correo Electrónico"
+                        required
+                    />
+                </div>
+
+                <div class="input-group">
+                    <label for="message">Mensaje</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Escribe tu mensaje aquí..."
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="send-btn">Enviar Mensaje</button>
+            </form>
+        </div>
+
+        <!-- 🔹 Iconos de Redes Sociales -->
+        <div class="social-media">
+            <h2>Síguenos</h2>
+            <div class="social-media">
+                <h2>Síguenos</h2>
+                <div class="icons">
+                    <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Hight Quality Icons - Flaticon</a>
+                    <a href="#" class="icon" aria-label="Twitter"><img src="/assets/social/twitter.svg" alt="Twitter"></a>
+                    <a href="#" class="icon" aria-label="Instagram"><img src="/assets/social/instagram.svg" alt="Instagram"></a>
+                    <a href="#" class="icon" aria-label="LinkedIn"><img src="/assets/social/linkedin.svg" alt="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <p>© 2024 SkyPris. Todos los derechos reservados.</p>
+        <p>Desarrollado por <a href="#">SkyPris</a></p>
+    </footer>
+</section>
+
+<style>
+    /* 🔹 Sección de Contacto */
+    .contact-section {
+        background-color: #333333;
+
+        background:
+            url("/assets/footer/fondo.svg") no-repeat center calc(100% - 100px),
+            linear-gradient(90deg, #333333, #333333, #333333);
+        background-size: cover;
+        background-position: center;
+        padding: 60px 20px;
+        color: white;
+    }
+
+    /* 🔹 Contenedor Principal */
+    .contact-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap: 30px;
+    }
+
+    /* 🔹 Formulario de Contacto */
+    .contact-form {
+        flex: 1;
+        max-width: 500px;
+    }
+
+    .contact-form h2 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+    }
+
+    .input-group {
+        margin-bottom: 15px;
+    }
+
+    .input-group label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 5px;
+        border: none;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .input-group textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    .send-btn {
+        background: linear-gradient(84deg, #2a5b76, #208675);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+
+        color: white;
+        padding: 12px 20px;
+        font-size: 1rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease-in-out;
+    }
+
+    .send-btn:hover {
+        background-color: #474545;
+    }
+
+    /* 🔹 Redes Sociales */
+    .social-media {
+        flex: 1;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .social-media h2 {
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+
+    .icons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .icon img {
+        width: 40px;
+        height: 40px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .icon:hover img {
+        transform: scale(1.2);
+    }
+
+    /* 🔹 Footer */
+    .footer {
+        text-align: center;
+        margin-top: 50px;
+        padding: 20px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .footer a {
+        color: #237975;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .footer a:hover {
+        text-decoration: underline;
+    }
+
+    /* 🔹 Responsive */
+    @media (max-width: 768px) {
+        .contact-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .contact-form,
+        .social-media {
+            max-width: 100%;
+        }
+
+        .icons {
+            justify-content: center;
+        }
+    }
+</style>

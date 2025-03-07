@@ -1,0 +1,257 @@
+---
+import categoriesData from "../../public/data/categories.json"; // 🔹 Importar el JSON directamente en Astro
+let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
+---
+
+<section id="plans">
+    <h2>Nuestros Planes</h2>
+
+    <!-- 🔹 Botones para cambiar de categoría -->
+    <div class="plans-category-buttons">
+        {
+            Object.keys(categoriesData).map((category) => (
+                <button
+                    class={`category-btn ${selectedCategory === category ? "active" : ""}`}
+                    data-category={category}
+                >
+                    {category}
+                </button>
+            ))
+        }
+    </div>
+
+    <!-- 🔹 Contenedor de los planes, generados desde Astro -->
+    <div class="plans-container">
+        {
+            Object.entries(categoriesData).map(([category, plans]) => (
+                <div
+                    class={`plan-group ${selectedCategory === category ? "visible" : "hidden"}`}
+                    data-category={category}
+                >
+                    {plans.map((plan) => (
+                        <div
+                            class={`plan-card ${plan.isBest ? "best-plan" : ""}`}
+                        >
+                            <img
+                                src={plan.icon}
+                                alt={plan.title}
+                                class="plan-icon"
+                            />
+                            <h3>{plan.title}</h3>
+                            <p>{plan.description.join(" ")}</p>
+                            <span class="plan-price">{plan.price}</span>
+                        </div>
+                    ))}
+                </div>
+            ))
+        }
+    </div>
+</section>
+
+<!-- ✅ Script Mejorado -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const buttons = document.querySelectorAll(".category-btn");
+        const planGroups = document.querySelectorAll(".plan-group");
+
+        let selectedCategory = "Chatbots"; // Categoría inicial
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                selectedCategory =
+                    button.getAttribute("data-category") ?? "Chatbots";
+
+                // 🔹 Quitar la clase "active" de todos los botones
+                buttons.forEach((btn) => btn.classList.remove("active"));
+                button.classList.add("active");
+
+                // 🔹 Ocultar todos los grupos y mostrar solo el seleccionado
+                planGroups.forEach((group) => {
+                    if (
+                        group.getAttribute("data-category") === selectedCategory
+                    ) {
+                        group.classList.remove("hidden");
+                        group.classList.add("visible");
+                    } else {
+                        group.classList.remove("visible");
+                        group.classList.add("hidden");
+                    }
+                });
+            });
+        });
+
+        // 🔹 Mostrar la categoría inicial al cargar
+        document
+            .querySelector(`.plan-group[data-category="${selectedCategory}"]`)
+            ?.classList.add("visible");
+    });
+</script>
+
+<!-- ✅ Estilos Mejorados -->
+<style>
+    /* 🔹 Contenedor Principal */
+    #plans {
+        text-align: center;
+        padding: 80px 20px;
+        background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+        max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
+        overflow: hidden !important;
+    }
+
+    /* 🔹 Botones de Categoría */
+    .plans-category-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .category-btn {
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        background: #d1d1d1;
+        border: none;
+        font-size: 1rem;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-btn.active {
+        /* background: #ff6b6b; */
+        background: linear-gradient(84deg, #2a5b76, #208675);
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgb(37 114 118);
+    }
+
+    /* 🔹 Contenedor de Planes */
+    .plans-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 70px;
+        max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
+    }
+
+    /* 🔹 Estilos de las Tarjetas */
+    .plan-card {
+        background: #d1d1d1;
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        border-radius: 12px;
+        text-align: center;
+        width: 300px;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        transition:
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
+    }
+
+    .plan-card.best-plan {
+        background: linear-gradient(84deg, #2a5b76, #208675);
+        color: white;
+        font-weight: bold;
+        transform: scale(1.1);
+        z-index: 10;
+        box-shadow: 0 5px 15px rgb(37 114 118);
+    }
+
+    .plan-card:hover {
+        transform: translateY(-5px) scale(1.03);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .plan-icon {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+        margin-top: 10px;
+    }
+
+    .plan-card p {
+        font-size: 1rem;
+        color: #555;
+        padding: 0 15px;
+        text-align: center;
+    }
+
+    .plan-price {
+        font-weight: bold;
+        font-size: 1.3rem;
+        display: block;
+        margin-top: 10px;
+        background: #b2b2b2e8;
+        padding: 8px 15px;
+        border-radius: 8px;
+    }
+
+    /* 🔹 Manejo de Visibilidad */
+    .hidden {
+        display: none;
+    }
+
+    .visible {
+        display: flex;
+    }
+
+    /* 🔹 Responsive */
+    @media (max-width: 768px) {
+        .visible {
+            display: contents;
+        }
+        .plans-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .plan-card {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            transform: scale(1);
+        }
+
+        .plans-category-buttons {
+            flex-wrap: wrap;
+        }
+    }
+    @media (max-width: 425px) {
+        .visible {
+            display: block !important;
+        }
+
+        .plan-card {
+            width: 90% !important; /* 🔹 Ocupa el 90% del ancho de la pantalla */
+            max-width: 350px !important;
+            margin: 0 auto !important;
+            transform: scale(1) !important;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px) scale(1) !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .plans-container {
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        /* .plan-card {
+            width: 90% !important; /* 🔹 Ocupa el 90% del ancho de la pantalla */
+            max-width: 350px !important; /* 🔹 Máximo ancho para no verse demasiado grande */
+            margin: 10px auto !important; /* 🔹 Margen automático para centrar */
+        } */
+
+        .plan-card.best-plan {
+            width: 95% !important; /* 🔹 La mejor opción un poco más grande */
+            max-width: 370px !important;
+        }
+    }
+</style>

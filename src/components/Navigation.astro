@@ -1,0 +1,219 @@
+---
+export interface Props {
+  links: { name: string; path: string }[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav class="navbar">
+  <div class="container">
+    <h1 class="logo">SkyPris</h1>
+    <!-- <a href="/" class="logo">Linkify</a> -->
+
+    <!-- Botón Menú Hamburguesa con Lottie -->
+    <button class="menu-toggle" id="menu-toggle">
+      <svg
+        id="menu-icon"
+        class="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        width="30"
+        height="30"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M3 12h18"></path><path d="M3 18h18"></path><path d="M3 6h18"
+        ></path>
+      </svg>
+    </button>
+
+    <!-- Menú Móvil -->
+    <ul class="nav-links" id="mobile-menu">
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.path}>{link.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<style>
+  /* .container{
+    max-width: 100% !important;
+    overflow: hidden !important;
+  } */
+  .navbar {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: transparent;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition:
+      background 0.3s ease-in-out,
+      color 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  /* Asegurar que el logo esté alineado a la izquierda */
+  .logo {
+    margin-right: auto;
+  }
+  /* Alinear los enlaces del navbar a la derecha */
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin-left: auto; /* Mueve los enlaces a la derecha */
+    padding-right: 110px;
+    color: rgb(170, 168, 168);
+  }
+
+  /* Mover el botón hamburguesa a la derecha en versión móvil */
+  .menu-toggle {
+    display: none;
+    position: absolute;
+    right: 100px; /* Ajustar el margen derecho */
+    top: 50%;
+    transform: translateY(-50%);
+    background: none; /* Eliminar el fondo */
+    border: none; /* Eliminar cualquier borde negro */
+    cursor: pointer;
+    padding: 0;
+    transition: transform 0.3s ease-in-out;
+    outline: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .nav-links li a {
+    color: #e9e7e7; /* Cambia esto al color que desees */
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+  }
+
+  /* Cambiar color al pasar el mouse */
+  .nav-links li a:hover {
+    color: #4e4e4d; /* Cambia esto para un efecto al pasar el mouse */
+  }
+
+  /* Cambia el color al hacer scroll */
+  .navbar.scrolled .nav-links li a {
+    color: rgb(51 51 51); /* 🔹 Cambia el color al hacer scroll */
+  }
+
+  /* Cambiar el logo si es necesario */
+  .navbar.scrolled .logo {
+    color: 333333;
+  }
+  /* Estilos para versión móvil */
+  @media (max-width: 700px) {
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      background: rgb(209 209 209 / 89%);
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      padding: 0px;
+      display: none;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links li a {
+      display: none;
+      color: black;
+      font-size: 1.2rem;
+      padding: 0rem;
+      display: block;
+    }
+  }
+
+  /* Estilos base del icono */
+  .icon {
+    width: 37px;
+    height: 35px;
+    transition: transform 0.4s ease-in-out;
+  }
+
+  /* Animación cuando el menú está abierto */
+  .icon.open {
+    transform: rotate(90deg); /* Simula transformación en flecha */
+  }
+
+  /* Cambiar el SVG cuando el menú esté abierto */
+  .icon.open path {
+    d: path("M9 18l6-6-6-6"); /* Transforma al ícono de flecha */
+  }
+</style>
+<script>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.getElementById("menu-toggle");
+      const menuIcon = document.getElementById("menu-icon");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      let isOpen = false;
+
+      // Asegurar que el menú inicie cerrado
+      mobileMenu?.classList.remove("open");
+
+      menuToggle?.addEventListener("click", () => {
+        isOpen = !isOpen;
+        mobileMenu?.classList.toggle("open");
+
+        // Verificar si menuIcon existe antes de cambiar su clase
+        if (menuIcon) {
+          menuIcon.classList.toggle("open");
+        }
+      });
+
+      // Cerrar el menú al hacer clic en un enlace
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          isOpen = false;
+          mobileMenu?.classList.remove("open");
+
+          if (menuIcon) {
+            menuIcon.classList.remove("open");
+          }
+        });
+      });
+    });
+  }
+</script>
+
+<script>
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      const navbar = document.querySelector(".navbar");
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 400) {
+          // 🔹 Ajusta este valor para el cambio de color
+          navbar?.classList.add("scrolled");
+        } else {
+          navbar?.classList.remove("scrolled");
+        }
+      });
+    });
+  }
+</script>
