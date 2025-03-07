@@ -42,14 +42,23 @@
         <!-- 🔹 Iconos de Redes Sociales -->
         <div class="social-media">
             <h2>Síguenos</h2>
-            <div class="social-media">
-                <h2>Síguenos</h2>
-                <div class="icons">
-                    <a href="https://www.flaticon.com/free-icons/facebook" title="facebook icons">Facebook icons created by Hight Quality Icons - Flaticon</a>
-                    <a href="#" class="icon" aria-label="Twitter"><img src="/assets/social/twitter.svg" alt="Twitter"></a>
-                    <a href="#" class="icon" aria-label="Instagram"><img src="/assets/social/instagram.svg" alt="Instagram"></a>
-                    <a href="#" class="icon" aria-label="LinkedIn"><img src="/assets/social/linkedin.svg" alt="LinkedIn"></a>
-                </div>
+            <div class="icons">
+                <a href="#" class="icon" aria-label="Facebook">
+                    <img src="/assets/social/facebook.png" alt="Facebook" />
+                    <span>Facebook</span>
+                </a>
+                <a href="#" class="icon" aria-label="WhatsApp">
+                    <img src="/assets/social/whatsapp.png" alt="WhatsApp" />
+                    <span>WhatsApp</span>
+                </a>
+                <a href="#" class="icon" aria-label="Instagram">
+                    <img src="/assets/social/instagram.png" alt="Instagram" />
+                    <span>Instagram</span>
+                </a>
+                <a href="#" class="icon" aria-label="LinkedIn">
+                    <img src="/assets/social/linkedin.png" alt="LinkedIn" />
+                    <span>LinkedIn</span>
+                </a>
             </div>
         </div>
     </div>
@@ -67,11 +76,12 @@
         background-color: #333333;
 
         background:
-            url("/assets/footer/fondo.svg") no-repeat center calc(100% - 100px),
-            linear-gradient(90deg, #333333, #333333, #333333);
+            url("/assets/footer/fondoFooter.svg") no-repeat center
+                calc(100% - 100px),
+            linear-gradient(180deg, #373636, #333333, #333333);
         background-size: cover;
         background-position: center;
-        padding: 60px 20px;
+        padding: 0px 20px;
         color: white;
     }
 
@@ -123,55 +133,90 @@
 
     .send-btn {
         background: linear-gradient(84deg, #2a5b76, #208675);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 
         color: white;
         padding: 12px 20px;
         font-size: 1rem;
         border: none;
         border-radius: 5px;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgb(37 114 118 / 67%);
         cursor: pointer;
-        transition: background 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        display: block;
+        margin: 0 auto;
     }
 
     .send-btn:hover {
-        background-color: #474545;
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 15px rgb(37 114 118 / 67%);
+    } /* 🔹 Botón activo con efecto 3D */
+    .send-btn:hover.active {
+        background: linear-gradient(84deg, #2a5b76, #208675);
+        color: white;
+        /* box-shadow: 0 6px 15px rgba(255, 107, 107, 0.5); */
+        transform: translateY(-3px);
     }
 
     /* 🔹 Redes Sociales */
     .social-media {
         flex: 1;
         max-width: 400px;
-        text-align: center;
+        /* text-align: center; */
     }
 
+    /* 🔹 Espaciado del título */
     .social-media h2 {
         margin-bottom: 15px;
         font-size: 1.8rem;
     }
 
+    /* 🔹 Contenedor de los iconos en columna */
     .icons {
         display: flex;
-        justify-content: center;
-        gap: 15px;
+        flex-direction: column; /* Apilar los iconos verticalmente */
+        align-items: center; /* Asegurar que todo esté centrado */
+        gap: 15px; /* Espaciado uniforme entre iconos */
+        padding: 50px;
     }
 
+    /* 🔹 Asegurar alineación uniforme */
+    .icon {
+        display: flex;
+        align-items: center; /* Centra el icono y el texto */
+        gap: 10px; /* Espaciado entre icono y texto */
+        width: 200px; /* Define un ancho uniforme */
+        text-decoration: none;
+
+    }
+
+    /* 🔹 Ajustar tamaño de los iconos para que todos sean iguales */
     .icon img {
-        width: 40px;
-        height: 40px;
-        transition: transform 0.3s ease-in-out;
+        width: 50px;
+        height: 50px;
+        object-fit: contain; /* Evita distorsión */
     }
 
-    .icon:hover img {
-        transform: scale(1.2);
+    /* 🔹 Asegurar que el texto no cause desbalance */
+    .icon span {
+        font-size: 1rem;
+        color: #f5f5f5;
+        white-space: nowrap; /* Evita que el texto se desborde */
+        text-align: left; /* Asegura alineación del texto */
+    }
+
+    /* 🔹 Efecto al pasar el mouse */
+    .icon:hover {
+        color: #208675; /* Color al pasar el mouse */
+        transform: scale(1.1);
     }
 
     /* 🔹 Footer */
     .footer {
         text-align: center;
-        margin-top: 50px;
+        margin-top: 70px;
         padding: 20px 0;
-        border-top: 1px solid rgba(255, 255, 255, 0.3);
+        border-top: 2px solid rgb(86 83 83 / 79%);
     }
 
     .footer a {
@@ -191,9 +236,35 @@
             text-align: center;
         }
 
+        .contact-form {
+            max-width: 80%;
+            padding: 0% 10%;
+        }
+        .social-media {
+            max-width: 80%;
+            padding: 10% 10%;
+        }
+
+        .icons {
+            justify-content: center;
+        }
+        .icon img {
+            width: 90px;
+            height: 60px;
+            object-fit: contain; /* Evita distorsión */
+        }
+    }
+
+    @media (max-width: 425px) {
+        .contact-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
         .contact-form,
         .social-media {
-            max-width: 100%;
+            max-width: 80%;
+            padding: 0% 10%;
         }
 
         .icons {

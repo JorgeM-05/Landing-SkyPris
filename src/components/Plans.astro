@@ -92,10 +92,14 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
     /* 🔹 Contenedor Principal */
     #plans {
         text-align: center;
-        padding: 80px 20px;
+        padding: 100px 20px;
         background: linear-gradient(to bottom, #f8f9fa, #ffffff);
         max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
         overflow: hidden !important;
+        background:
+        url(/assets/Plans/Planes.svg) no-repeat center calc(129% - 47px),
+        linear-gradient(180deg, #ececec, #938e8e, #333333);
+        background-size: 60%; /* Ajusta el tamaño al 50% del contenedor */
     }
 
     /* 🔹 Botones de Categoría */
@@ -163,7 +167,7 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
     }
 
     .plan-card:hover {
-        transform: translateY(-5px) scale(1.03);
+        transform: translateY(-5px) scale(1.3);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
@@ -244,9 +248,9 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         }
 
         /* .plan-card {
-            width: 90% !important; /* 🔹 Ocupa el 90% del ancho de la pantalla */
-            max-width: 350px !important; /* 🔹 Máximo ancho para no verse demasiado grande */
-            margin: 10px auto !important; /* 🔹 Margen automático para centrar */
+            width: 90% !important;
+            max-width: 350px !important; 
+            margin: 10px auto !important;
         } */
 
         .plan-card.best-plan {

@@ -5,7 +5,9 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "module": "ESNext",
+    "target": "ESNext"
   },
   "include": ["src/**/*", "astro-env.d.ts"],
   "exclude": ["node_modules", "dist"]
