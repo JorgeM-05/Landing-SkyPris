@@ -201,7 +201,7 @@ const services: Service[] = [
         margin-top: 50px;
         position: relative;
         max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
-        overflow: hidden !important;
+        /* overflow: hidden !important; */
     }
 
     /* 🔹 Icono al lado izquierdo */
@@ -213,7 +213,7 @@ const services: Service[] = [
 
     .hook-banner {
         position: relative;
-        width: 80%; /* Se adapta al contenedor padre */
+        width: 74%; /* Se adapta al contenedor padre */
         max-width: 100%; /* Ajusta según necesidad */
         height: 250px; /* Ajusta la altura */
         display: flex;
@@ -224,7 +224,7 @@ const services: Service[] = [
     /* Imagen de fondo */
     .hook-image {
         width: 100%;
-        height: 100%;
+        height: 124%;
         object-fit: cover; /* Asegura que la imagen se ajuste bien */
         position: absolute;
         top: 20px;
@@ -295,24 +295,6 @@ const services: Service[] = [
         }
         100% {
             transform: scale(1.1);
-        }
-    }
-
-    /* 🔹 Responsivo */
-    @media (max-width: 768px) {
-        .hook-container {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .hook-icon {
-            width: 60px;
-            height: 60px;
-        }
-
-        .hook-banner {
-            font-size: 1rem;
-            padding: 15px 30px;
         }
     }
 
@@ -409,6 +391,15 @@ const services: Service[] = [
             max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
             overflow: hidden !important;
         }
+        .hook-content {
+            position: relative;
+            z-index: 2; /* Se coloca sobre la imagen */
+            text-align: center;
+            color: #7d4b00; /* Color del texto */
+            padding: 20px;
+            font-size: 1.9rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+        }
     }
     @media (min-width: 1200px) and (max-width: 1440px) {
         .benefits-container {
@@ -431,6 +422,45 @@ const services: Service[] = [
             text-align: center;
             max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
             overflow: hidden !important;
+        }
+        .hook-image {
+            width: 96%;
+            height: 124%;
+            object-fit: cover; /* Asegura que la imagen se ajuste bien */
+            position: absolute;
+            top: 10px;
+            left: 0;
+            z-index: 1; /* Se coloca detrás del contenido */
+        }
+        .hook-content {
+            position: relative;
+            z-index: 2; /* Se coloca sobre la imagen */
+            text-align: center;
+            color: #7d4b00; /* Color del texto */
+            padding: 20px;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+        }
+    }
+
+    @media (max-height: 800px) and (min-width: 1023px) and (max-width: 1200px) {
+        .hook-image {
+            width: 104%;
+            height: 107%;
+            object-fit: cover; /* Asegura que la imagen se ajuste bien */
+            position: absolute;
+            top: 10px;
+            left: 0;
+            z-index: 1; /* Se coloca detrás del contenido */
+        }
+        .hook-content {
+            position: relative;
+            z-index: 2; /* Se coloca sobre la imagen */
+            text-align: center;
+            color: #7d4b00; /* Color del texto */
+            padding: 20px;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
         }
     }
     /* 🔹 Responsivo */
@@ -455,6 +485,68 @@ const services: Service[] = [
             text-align: center;
             max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
             overflow: hidden !important;
+        }
+        .hook-container {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hook-icon {
+            width: 60px;
+            height: 60px;
+        }
+
+        .hook-banner {
+            font-size: 1rem;
+            padding: 0px 20px;
+        }
+        .hook-image {
+            width: 112%;
+            height: 90%;
+            object-fit: cover; /* Asegura que la imagen se ajuste bien */
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 1; /* Se coloca detrás del contenido */
+        }
+        .hook-content {
+            position: relative;
+            z-index: 2; /* Se coloca sobre la imagen */
+            text-align: center;
+            color: #7d4b00; /* Color del texto */
+            padding: 20px;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .benefits-container {
+            gap: 60px;
+            margin-top: 30px;
+        }
+        
+        .hook-image {
+            width: 110%;
+            height: 90%;
+            object-fit: cover; /* Asegura que la imagen se ajuste bien */
+            position: absolute;
+            top: 20px;
+            left: 0;
+            z-index: 1; /* Se coloca detrás del contenido */
+        }
+        .hook-content {
+            position: relative;
+            z-index: 2; /* Se coloca sobre la imagen */
+            text-align: center;
+            color: #7d4b00; /* Color del texto */
+            padding: 0px;
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+        }
+        .hook-icon {
+            width: 45%;
+            height: 60%;
         }
     }
 </style>
