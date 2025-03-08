@@ -40,10 +40,11 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
 
         background:
             url("/assets/FondoUniverso.svg") no-repeat center calc(20% - 69px),
-            linear-gradient(90deg, #4da8ae, #336e84, #1b3b5f);
+            linear-gradient(90deg, #279090, #2f6767, #1e2a2a);
+            
         color: white;
 
-        background-size: 100% auto; 
+        background-size: 100% auto;
         background-repeat: no-repeat;
     }
 
@@ -141,9 +142,9 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
     }
     @media (min-width: 1200px) and (max-width: 1440px) {
         .rocket-container {
-            bottom: -40%;
-            left: 47%;
-            width: 81%;
+            bottom: -20%;
+            left: 50%;
+            width: 90%;
         }
         .rocket {
             width: 12%;
@@ -188,7 +189,9 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
             max-width: 180%;
         }
         .rocket-container {
-            /* bottom: -2%; */
+            bottom: -20%;
+            left: 50%;
+            width: 90%;
         }
     }
 
@@ -205,7 +208,9 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
             max-width: 180%;
         }
         .rocket-container {
-            /* bottom: -2%; */
+            bottom: -20%;
+            left: 50%;
+            width: 90%;
         }
     }
 
@@ -233,14 +238,16 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
         }
 
         .rocket-container {
-            /* bottom: -2%; */
+            bottom: -8%;
+            left: 50%;
+            width: 90%;
         }
     }
 
     @media (max-width: 480px) {
         .rocket-container {
-            bottom: -3%;
-            left: 48%;
+            bottom: -10%;
+            left: 50%;
             width: 132%;
         }
         #hero {
@@ -254,7 +261,7 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
             font-size: 2.7em;
             margin-bottom: -20px;
         }
-        p{
+        p {
             font-size: 1.1rem;
         }
         .rocket {

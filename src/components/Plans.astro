@@ -38,8 +38,15 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
                                 class="plan-icon"
                             />
                             <h3>{plan.title}</h3>
-                            <p>{plan.description.join(" ")}</p>
-                            <span class="plan-price">{plan.price}</span>
+                            <div class="plan-description">
+                                {plan.description.map((line, index) => (
+                                    <p>{line}</p>
+                                ))}
+                            </div>
+
+                            <span class="category-btn plan-price">
+                                {plan.price}
+                            </span>
                         </div>
                     ))}
                 </div>
@@ -97,8 +104,8 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
         overflow: hidden !important;
         background:
-        url(/assets/Plans/Planes.svg) no-repeat center calc(129% - 47px),
-        linear-gradient(180deg, #ececec, #938e8e, #333333);
+            url(/assets/Plans/Planes.svg) no-repeat center calc(129% - 47px),
+            linear-gradient(180deg, #ececec, #938e8e, #333333);
         background-size: 60%; /* Ajusta el tamaño al 50% del contenedor */
     }
 
@@ -129,6 +136,15 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         box-shadow: 0 5px 15px rgb(37 114 118);
     }
 
+    .category-btn:hover {
+        background: linear-gradient(84deg, #2a5b76, #208675);
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgb(37 114 118);
+        transition:
+            background 0.4s ease-in-out,
+            color 0.5s ease-in-out;
+    }
     /* 🔹 Contenedor de Planes */
     .plans-container {
         display: flex;
@@ -147,27 +163,36 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         border-radius: 12px;
         text-align: center;
         width: 300px;
-        height: 350px;
+        height: 400px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         transition:
             transform 0.3s ease,
             box-shadow 0.3s ease;
     }
 
+
     .plan-card.best-plan {
-        background: linear-gradient(84deg, #2a5b76, #208675);
+        background: linear-gradient(84deg, #288989, #2b5656);
         color: white;
         font-weight: bold;
         transform: scale(1.1);
         z-index: 10;
-        box-shadow: 0 5px 15px rgb(37 114 118);
+        box-shadow: 0 5px 15px rgb(40 96 118);
+        
+    }
+
+    .plan-card.best-plan .category-btn:hover {
+        background: linear-gradient(84deg, #c2c4c5, #b2b4b4);
+        color: rgb(44, 42, 42);
+        transition:
+            background 0.4s ease-in-out,
+            color 0.5s ease-in-out;
     }
 
     .plan-card:hover {
-        transform: translateY(-5px) scale(1.3);
+        transform: translateY(-5px) scale(1.1);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     }
 
@@ -175,14 +200,16 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         width: 80px;
         height: 80px;
         object-fit: contain;
-        margin-top: 10px;
+        margin-top: -50px;
     }
 
     .plan-card p {
         font-size: 1rem;
-        color: #555;
+        color: #292929;
         padding: 0 15px;
-        text-align: center;
+        text-align: left; /* Alinea el texto a la derecha */
+
+        /* text-align: center; */
     }
 
     .plan-price {
@@ -193,6 +220,9 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         background: #b2b2b2e8;
         padding: 8px 15px;
         border-radius: 8px;
+    }
+    .plan-description {
+        line-height: 1; /* Reduce el espacio entre líneas, puedes ajustar el valor */
     }
 
     /* 🔹 Manejo de Visibilidad */
@@ -254,7 +284,7 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         } */
 
         .plan-card.best-plan {
-            width: 95% !important; /* 🔹 La mejor opción un poco más grande */
+            width: 90% !important; /* 🔹 La mejor opción un poco más grande */
             max-width: 370px !important;
         }
     }

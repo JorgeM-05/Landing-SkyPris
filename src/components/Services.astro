@@ -10,20 +10,20 @@ const benefits = [
         title: "Chatbots AI",
         description:
             "Automatiza la atención al cliente con inteligencia artificial.",
-        image: "/assets/Services/bot.svg",
+        image: "/assets/Services/beneficios/Chatbot-benefit.svg",
     },
     {
         title: "E-commerce",
         description:
             "Tiendas online eficientes y seguras con integración de pagos.",
-        image: "/assets/Services/e-comerce.svg",
+        image: "/assets/Services/beneficios/e-comerce-benefits.svg",
     },
 ];
 
 const services: Service[] = [
     // {
     //     title: "Desarrollo Web",
-    //     description: "Creamos sitios web rápidos y optimizados.",   
+    //     description: "Creamos sitios web rápidos y optimizados.",
     //     icon: "/assets/Services/Chatbot.svg",
     // },
     {
@@ -63,8 +63,15 @@ const services: Service[] = [
             class="hook-icon"
         />
         <div class="hook-banner">
-            <h1>{title}</h1>
-            <a href={buttonLink} class="hero-button">{buttonText}</a>
+            <img
+                src="/assets/Services/mancha.svg"
+                alt="Fondo"
+                class="hook-image"
+            />
+            <div class="hook-content">
+                <h3>{title}</h3>
+                <a href={buttonLink} class="benefit-btn">{buttonText}</a>
+            </div>
         </div>
     </div>
 
@@ -148,8 +155,8 @@ const services: Service[] = [
 
         background:
             url("/assets/Services/costelacion.svg") no-repeat center
-                calc(39% - 69px),
-            linear-gradient(to bottom, #e3e3e3, #ffffff);
+                calc(50% - 57px),
+            linear-gradient(to bottom, #eeeeee, #eeeeee);
     }
 
     h2 {
@@ -204,27 +211,81 @@ const services: Service[] = [
         animation: pulse 1.5s infinite alternate; /* 🔥 Animación para que llame la atención */
     }
 
-    /* 🔹 Cuadro flotante llamativo */
     .hook-banner {
-        background: linear-gradient(
-            87deg,
-            #508da5,
-            #3bb581
-        ); /* 🔹 Degradado llamativo */
-        padding: 20px 40px;
-        max-width: 100%; /* 🔹 Evita que sea más grande que su contenedor */
-        height: 80px;
-        border-radius: 10px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
-
-        font-size: 1.2rem;
-        font-weight: bold;
-        transform: translateY(-5px);
-        transition: transform 0.3s ease-in-out;
+        position: relative;
+        width: 80%; /* Se adapta al contenedor padre */
+        max-width: 100%; /* Ajusta según necesidad */
+        height: 250px; /* Ajusta la altura */
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
-    .hook-banner:hover {
-        transform: translateY(-10px) scale(1.03); /* 🔹 Efecto flotante más sutil */
+
+    /* Imagen de fondo */
+    .hook-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Asegura que la imagen se ajuste bien */
+        position: absolute;
+        top: 20px;
+        left: 0;
+        z-index: 1; /* Se coloca detrás del contenido */
+    }
+
+    /* Contenedor del texto y botón */
+    .hook-content {
+        position: relative;
+        z-index: 2; /* Se coloca sobre la imagen */
+        text-align: center;
+        color: white; /* Color del texto */
+        padding: 20px;
+        font-size: 1.3rem;
+    }
+
+    /* Estilos del botón */
+    .hero-button {
+        background: linear-gradient(145deg, #ffffff, #d1d1d1);
+        border: none;
+        padding: 12px 40px;
+        font-size: 1rem;
+        border-radius: 8px;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgb(37 114 118 / 67%);
+        cursor: pointer;
+        transition: all 0.3sease-in-out;
+        margin-top: 18px;
+        text-decoration: none; /* Elimina la línea */
+    }
+
+    .hero-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+    }
+    /* 🔹 Botones 3D a la izquierda */
+    .hero-button {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-left: 10px;
+    }
+
+    .benefit-btn {
+        background: linear-gradient(145deg, #ffffff, #d1d1d1);
+        text-decoration: none;
+        border: none;
+        padding: 12px 40px;
+        font-size: 1rem;
+        border-radius: 8px;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgb(37 114 118 / 67%);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        margin-top: 18px;
+    }
+
+    .benefit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
     }
 
     /* 🔹 Animación del icono */
@@ -260,10 +321,9 @@ const services: Service[] = [
         display: flex;
         gap: 200px;
         margin-top: 60px;
-        padding: 40px 20px;
+        padding: 40px 90px;
         border-radius: 10px;
         max-width: 1200px; /* 🔹 Evita que se salga del contenedor */
-        width: 100%;
         margin-left: auto;
         max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
         overflow: hidden !important;
@@ -327,13 +387,51 @@ const services: Service[] = [
         font-size: 1rem;
         color: #333;
     }
-    @media (max-width: 768px) {
+    @media (min-width: 1440px) and (max-width: 2560px) {
         .benefits-container {
-            flex-direction: column;
             align-items: center;
-            padding: 20px;
+            margin-top: 60px;
+            padding: 40px 250px;
         }
-        
+
+        .benefits-buttons {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .benefit-btn {
+            font-size: 0.9rem;
+            padding: 10px 15px;
+        }
+
+        .benefits-content {
+            text-align: center;
+            max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
+            overflow: hidden !important;
+        }
+    }
+    @media (min-width: 1200px) and (max-width: 1440px) {
+        .benefits-container {
+            align-items: center;
+            margin-top: 60px;
+            padding: 40px 250px;
+        }
+
+        .benefits-buttons {
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .benefit-btn {
+            font-size: 0.9rem;
+            padding: 10px 15px;
+        }
+
+        .benefits-content {
+            text-align: center;
+            max-width: 100% !important; /* 🔹 Evita que se expanda más allá del ancho disponible */
+            overflow: hidden !important;
+        }
     }
     /* 🔹 Responsivo */
     @media (max-width: 768px) {

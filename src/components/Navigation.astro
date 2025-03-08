@@ -8,7 +8,7 @@ const { links } = Astro.props;
 
 <nav class="navbar">
   <div class="container">
-    <h1 class="logo">SkyPris</h1>
+    <h1 class="logo">Sky<span class="pris">Pris</span></h1>
     <!-- <a href="/" class="logo">Linkify</a> -->
 
     <!-- Botón Menú Hamburguesa con Lottie -->
@@ -45,17 +45,15 @@ const { links } = Astro.props;
 </nav>
 
 <style>
-  /* .container{
-    max-width: 100% !important;
-    overflow: hidden !important;
-  } */
+  .container {
+    padding: 0px 40px;
+  }
   .navbar {
     width: 100%;
     position: fixed;
-    top: 0;
-    left: 0;
+    /* top: 20px;
+    left: 20px; */
     background: transparent;
-    padding: 1rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -68,7 +66,13 @@ const { links } = Astro.props;
   /* Asegurar que el logo esté alineado a la izquierda */
   .logo {
     margin-right: auto;
+    font-size: 2.4rem;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 57%); /* Sombra */
+
   }
+  .logo .pris {
+    color: #288c8c; /* Cambia este color según lo que necesites */
+}
   /* Alinear los enlaces del navbar a la derecha */
   .nav-links {
     list-style: none;
@@ -83,7 +87,7 @@ const { links } = Astro.props;
   .menu-toggle {
     display: none;
     position: absolute;
-    right: 100px; /* Ajustar el margen derecho */
+    right: 70px; /* Ajustar el margen derecho */
     top: 50%;
     transform: translateY(-50%);
     background: none; /* Eliminar el fondo */
@@ -96,37 +100,90 @@ const { links } = Astro.props;
     -webkit-tap-highlight-color: transparent;
   }
   .nav-links li a {
-    color: #e9e7e7; /* Cambia esto al color que desees */
+    color: #ffffff; /* Cambia esto al color que desees */
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.15rem;
     transition: color 0.3s ease-in-out;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
   }
 
   /* Cambiar color al pasar el mouse */
   .nav-links li a:hover {
-    color: #4e4e4d; /* Cambia esto para un efecto al pasar el mouse */
+    color: #288e8e; /* Cambia esto para un efecto al pasar el mouse */
   }
 
   /* Cambia el color al hacer scroll */
   .navbar.scrolled .nav-links li a {
-    color: rgb(51 51 51); /* 🔹 Cambia el color al hacer scroll */
+    color: rgb(255, 255, 255); /* 🔹 Cambia el color al hacer scroll */
   }
 
   /* Cambiar el logo si es necesario */
-  .navbar.scrolled .logo {
-    color: 333333;
+  .navbar.scrolled {
+    background: rgba(54, 47, 41, 0.4); /* Fondo semi-transparente */
+    backdrop-filter: blur(10px); /* Aplica el desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+    transition: background 0.3s ease-in-out; /* Suaviza la transición */
   }
+
   /* Estilos para versión móvil */
-  @media (max-width: 700px) {
+  @media (max-width: 769px) {
+    .navbar{
+      width: 97%;
+    }
     .menu-toggle {
       display: block;
     }
 
     .nav-links {
       position: absolute;
-      top: 60px;
+      top: 105px;
+      right: 0px;
+      /* background: rgb(209 209 209 / 89%); */
+      width: 100%;
+      flex-direction: column;
+      text-align: center;
+      display: none;
+      backdrop-filter: blur(10px); /* Aplica el desenfoque */
+      -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
+      background: rgb(48 41 36 / 61%); /* Fondo semi-transparente */
+      transition: background 0.3s ease-in-out; /* Suaviza la transición */
+    }
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-links li a {
+      display: none;
+      color: rgb(255, 255, 255);
+      font-size: 1.3rem;
+      padding: 0rem;
+      display: block;
+    }
+  }
+  @media (max-width: 425px) {
+    .navbar {
+      width: 100%;
+      position: fixed;
+      /* top: 20px;
+      left: 20px; */
+      background: transparent;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition:
+        background 0.3sease-in-out,
+        color 0.3sease-in-out;
+      z-index: 1000;
+    }
+    .menu-toggle {
+      display: block;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 105px;
       right: 0;
-      background: rgb(209 209 209 / 89%);
+      background: rgb(48 41 36 / 61%); /* Fondo semi-transparente */
       width: 100%;
       flex-direction: column;
       text-align: center;
@@ -134,9 +191,9 @@ const { links } = Astro.props;
       display: none;
     }
 
-    .nav-links.open {
+    /* .nav-links.open {
       display: flex;
-    }
+    } */
 
     .nav-links li a {
       display: none;
@@ -149,9 +206,10 @@ const { links } = Astro.props;
 
   /* Estilos base del icono */
   .icon {
-    width: 37px;
+    width: 40px;
     height: 35px;
     transition: transform 0.4s ease-in-out;
+    color: #288c8c;
   }
 
   /* Animación cuando el menú está abierto */
@@ -207,7 +265,7 @@ const { links } = Astro.props;
       const navbar = document.querySelector(".navbar");
 
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 400) {
+        if (window.scrollY > 450) {
           // 🔹 Ajusta este valor para el cambio de color
           navbar?.classList.add("scrolled");
         } else {

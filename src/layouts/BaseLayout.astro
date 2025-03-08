@@ -5,8 +5,8 @@ import "../styles/global.css";
 const navLinks = [
     { name: "Inicio", path: "/" },
     { name: "Servicios", path: "#services" },
-    { name: "Planes", path: "/plans" },
-    { name: "Contacto", path: "/contact" },
+    { name: "Planes", path: "#plans" },
+    { name: "Contacto", path: "#contact" },
 ];
 
 export interface Props {
@@ -20,8 +20,8 @@ const { title, description } = Astro.props;
 <!doctype html>
 <html lang="es">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{title}</title>
         <meta name="description" content={description} />
         <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,0 +1,26 @@
+,
+    "Combos": [
+      {
+        "title": "Pack Startup",
+        "description": ["Incluye chatbot y tienda online básica."],
+        "price": "$49.99/mes",
+        "icon": "/assets/Services/bot.svg",
+        "isBest": true
+      },
+      {
+        "title": "Pack Business",
+        "description": ["Incluye chatbot avanzado y tienda pro."],
+        "price": "$89.99/mes",
+        "icon": "/assets/Services/bot.svg",
+        "isBest": false
+      }
+    ],
+    "Desarrollo a Medida": [
+      {
+        "title": "Solución Personalizada",
+        "description": ["Diseño y desarrollo de software según necesidades."],
+        "price": "Precio a medida",
+        "icon": "/assets/Services/bot.svg",
+        "isBest": true
+      }
+    ]

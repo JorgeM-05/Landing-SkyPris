@@ -6,7 +6,11 @@ import Plans from "../components/Plans.astro";
 import Footer from "../components/Footer.astro";
 ---
 
- <Hero
+<BaseLayout
+  title="SkyPriss"
+  description="Bienvenido a SkyPris - Empresa Software"
+/>
+<Hero
   title="Creamos Experiencias"
   subtitle="Transforma tus ideas en  realidad"
   buttonText="Saber Más"
@@ -17,11 +21,5 @@ import Footer from "../components/Footer.astro";
   buttonText="Escribenos"
   buttonLink="#service"
 />
-<Plans
-/>
-<Footer/>
-<BaseLayout
-  title="SkyPriss"
-  description="Bienvenido a SkyPris - Empresa Software"
->
-</BaseLayout>
+<Plans />
+<Footer />

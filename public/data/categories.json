@@ -4,21 +4,21 @@
         "title": "Plan Básico",
         "description": ["Automatización con respuestas predefinidas.", "Otras descripciones."],
         "price": "$9.99/mes",
-        "icon": "/assets/Services/bot.svg",
+        "icon": "/assets/Plans/bot-basic.svg",
         "isBest": false
       },
       {
         "title": "Plan Pro",
-        "description": ["Chatbots con IA avanzada y aprendizaje automático."],
+        "description": ["Chatbots con IA avanzada", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones."],
         "price": "$19.99/mes",
-        "icon": "/assets/Services/bot.svg",
+        "icon": "/assets/Plans/bot-standar.svg",
         "isBest": true
       },
       {
         "title": "Plan Premium",
-        "description": ["Integración con API y personalización completa."],
+        "description": ["Integración con API"," personalización completa.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones."],
         "price": "$29.99/mes",
-        "icon": "/assets/Services/bot.svg",
+        "icon": "/assets/Plans/bot-premium.svg",
         "isBest": false
       }
     ],
@@ -27,48 +27,24 @@
         "title": "Plan Básico",
         "description": ["Tienda online estándar con plantillas."],
         "price": "$19.99/mes",
-        "icon": "/assets/Services/bot.svg",
+        "icon": "/assets/Plans/e-comerce-basic.svg",
         "isBest": false
       },
       {
         "title": "Plan Pro",
         "description": ["Tienda con pasarela de pagos e integración de envíos."],
         "price": "$39.99/mes",
-        "icon": "/assets/Services/bot.svg",
+        "icon": "/assets/Plans/e-comerce-medio.svg",
         "isBest": true
       },
       {
         "title": "Plan Premium",
         "description": ["Tienda con IA, automatización y marketing integrado."],
         "price": "$59.99/mes",
-        "icon": "/assets/Services/bot.svg",
+        "icon": "/assets/Plans/e-comerce-premium.svg",
         "isBest": false
-      }
-    ],
-    "Combos": [
-      {
-        "title": "Pack Startup",
-        "description": ["Incluye chatbot y tienda online básica."],
-        "price": "$49.99/mes",
-        "icon": "/assets/Services/bot.svg",
-        "isBest": true
-      },
-      {
-        "title": "Pack Business",
-        "description": ["Incluye chatbot avanzado y tienda pro."],
-        "price": "$89.99/mes",
-        "icon": "/assets/Services/bot.svg",
-        "isBest": false
-      }
-    ],
-    "Desarrollo a Medida": [
-      {
-        "title": "Solución Personalizada",
-        "description": ["Diseño y desarrollo de software según necesidades."],
-        "price": "Precio a medida",
-        "icon": "/assets/Services/bot.svg",
-        "isBest": true
       }
     ]
+    
   }
   
