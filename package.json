@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
+    "@astrojs/netlify": "^6.2.3",
     "astro": "^5.4.0",
     "nodemailer": "^6.10.0",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@types/nodemailer": "^6.4.17"
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.0.12"
   }
 }

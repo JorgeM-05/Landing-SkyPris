@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
-import staticAdapter from '@astrojs/adapter-static';
+
+import netlify from "@astrojs/netlify/functions";
+
 
 export default defineConfig({
-    adapter: staticAdapter()
-  });
+  adapter: netlify(),
+});
