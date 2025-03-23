@@ -9,26 +9,21 @@ const benefits = [
     {
         title: "Chatbots AI",
         description:
-            "Automatiza la atención al cliente con inteligencia artificial.",
+            "Transforma tu negocio con una tienda en línea activa 24/7 y un chatbot inteligente que responde en segundos, guía a tus clientes, agenda citas, resuelve dudas y convierte visitas en ventas sin que tengas que mover un dedo",
         image: "/assets/Services/beneficios/Chatbot-benefit.svg",
     },
     {
         title: "E-commerce",
         description:
-            "Tiendas online eficientes y seguras con integración de pagos.",
+            "Impulsa tu negocio con una tienda en línea diseñada para vender las 24 horas del día, que muestra tu catálogo de productos de forma atractiva, recibe pedidos automáticamente, gestiona métodos de pago y envío, y te permite llegar a más clientes sin depender de un local físico, todo desde una plataforma fácil de usar y lista para crecer contigo.",
         image: "/assets/Services/beneficios/e-comerce-benefits.svg",
     },
 ];
 
 const services: Service[] = [
-    // {
-    //     title: "Desarrollo Web",
-    //     description: "Creamos sitios web rápidos y optimizados.",
-    //     icon: "/assets/Services/Chatbot.svg",
-    // },
     {
         title: "Chatbots",
-        description: "Automatizamos la atención con inteligencia artificial.",
+        description: "Atención automatizada con inteligencia artificial",
         icon: "/assets/Services/Chatbot.svg",
     },
     {
@@ -70,7 +65,9 @@ const services: Service[] = [
             />
             <div class="hook-content">
                 <h3>{title}</h3>
-                <a href={buttonLink} class="benefit-btn">{buttonText}</a>
+                <a href={buttonLink} class="benefit-btn" target="_blank"
+                    >{buttonText}</a
+                >
             </div>
         </div>
     </div>
@@ -237,9 +234,14 @@ const services: Service[] = [
         position: relative;
         z-index: 2; /* Se coloca sobre la imagen */
         text-align: center;
-        color: white; /* Color del texto */
+        color: #e0822c; /* Color del texto */
         padding: 20px;
         font-size: 1.3rem;
+    }
+    .hook-content a {
+        padding: 12px 40px;
+        min-width: 200px;
+        font-size: 1.2rem;
     }
 
     /* Estilos del botón */
@@ -301,9 +303,9 @@ const services: Service[] = [
     /* 🔹 Contenedor principal de la sección */
     .benefits-container {
         display: flex;
-        gap: 200px;
-        margin-top: 60px;
-        padding: 40px 90px;
+        gap: 60px;
+        margin-top: 40px;
+        padding: 30px 10%;
         border-radius: 10px;
         max-width: 1200px; /* 🔹 Evita que se salga del contenedor */
         margin-left: auto;
@@ -317,25 +319,7 @@ const services: Service[] = [
         flex-direction: column;
         gap: 20px;
         margin-left: 10px;
-    }
-
-    .benefit-btn {
-        background: linear-gradient(145deg, #ffffff, #d1d1d1);
-
-        border: none;
-        padding: 12px 40px;
-        font-size: 1rem;
-        border-radius: 8px;
-        font-weight: bold;
-        box-shadow: 0 5px 15px rgb(37 114 118 / 67%);
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        margin-top: 18px;
-    }
-
-    .benefit-btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+        min-width: 200px;
     }
 
     /* 🔹 Botón activo con efecto 3D */
@@ -373,17 +357,18 @@ const services: Service[] = [
         .benefits-container {
             align-items: center;
             margin-top: 60px;
-            padding: 40px 250px;
+            padding: 40px 22%;
         }
 
         .benefits-buttons {
             flex-direction: column;
             gap: 15px;
+            min-width: 200px;
         }
 
         .benefit-btn {
-            font-size: 0.9rem;
-            padding: 10px 15px;
+            font-size: 1rem;
+            /* padding: 10px 15px; */
         }
 
         .benefits-content {
@@ -395,26 +380,36 @@ const services: Service[] = [
             position: relative;
             z-index: 2; /* Se coloca sobre la imagen */
             text-align: center;
-            color: #7d4b00; /* Color del texto */
             padding: 20px;
-            font-size: 1.9rem;
-            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+            font-size: 2rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 36%);
+            right: 30px;
+        }
+        .hook-image {
+            width: 96%;
+            height: 140%;
+            object-fit: cover; /* Asegura que la imagen se ajuste bien */
+            position: absolute;
+            top: 10px;
+            left: 26px;
+            z-index: 1; /* Se coloca detrás del contenido */
         }
     }
     @media (min-width: 1200px) and (max-width: 1440px) {
         .benefits-container {
             align-items: center;
             margin-top: 60px;
-            padding: 40px 250px;
+            padding: 40px 20%;
         }
 
         .benefits-buttons {
             flex-direction: column;
             gap: 15px;
+            min-width: 200px;
         }
 
         .benefit-btn {
-            font-size: 0.9rem;
+            font-size: 1rem;
             padding: 10px 15px;
         }
 
@@ -436,10 +431,10 @@ const services: Service[] = [
             position: relative;
             z-index: 2; /* Se coloca sobre la imagen */
             text-align: center;
-            color: #7d4b00; /* Color del texto */
             padding: 20px;
             font-size: 1.5rem;
-            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 36%);
+            right: 30px;
         }
     }
 
@@ -457,10 +452,9 @@ const services: Service[] = [
             position: relative;
             z-index: 2; /* Se coloca sobre la imagen */
             text-align: center;
-            color: #7d4b00; /* Color del texto */
             padding: 20px;
-            font-size: 1.3rem;
-            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 36%);
         }
     }
     /* 🔹 Responsivo */
@@ -474,6 +468,7 @@ const services: Service[] = [
         .benefits-buttons {
             flex-direction: row;
             gap: 15px;
+            min-width: 200px;
         }
 
         .benefit-btn {
@@ -491,10 +486,10 @@ const services: Service[] = [
             text-align: center;
         }
 
-        .hook-icon {
+        /* .hook-icon {
             width: 60px;
             height: 60px;
-        }
+        } */
 
         .hook-banner {
             font-size: 1rem;
@@ -513,10 +508,9 @@ const services: Service[] = [
             position: relative;
             z-index: 2; /* Se coloca sobre la imagen */
             text-align: center;
-            color: #7d4b00; /* Color del texto */
             padding: 20px;
-            font-size: 1.3rem;
-            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 36%);
         }
     }
 
@@ -525,7 +519,7 @@ const services: Service[] = [
             gap: 60px;
             margin-top: 30px;
         }
-        
+
         .hook-image {
             width: 110%;
             height: 90%;
@@ -539,14 +533,13 @@ const services: Service[] = [
             position: relative;
             z-index: 2; /* Se coloca sobre la imagen */
             text-align: center;
-            color: #7d4b00; /* Color del texto */
             padding: 0px;
-            font-size: 1.3rem;
-            text-shadow: 2px 2px 6px rgb(255 235 235 / 56%);
+            font-size: 1.4rem;
+            text-shadow: 2px 2px 6px rgb(255 235 235 / 36%);
         }
-        .hook-icon {
+        /* .hook-icon {
             width: 45%;
             height: 60%;
-        }
+        } */
     }
 </style>

@@ -1,3 +1,6 @@
 import { defineConfig } from "astro/config";
+import staticAdapter from '@astrojs/adapter-static';
 
-export default defineConfig()
+export default defineConfig({
+    adapter: staticAdapter()
+  });

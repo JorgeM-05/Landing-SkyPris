@@ -13,9 +13,9 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
     <div class="hero-content">
         <h1>{title}</h1>
         <p>{subtitle}</p>
-        <a href={buttonLink} class="hero-button">{buttonText}</a>
+        <a href={buttonLink} class="hero-button" target="_blank">{buttonText}</a>
     </div>
-    <div class="rocket-container">
+    <div class="rocket-container" >
         <img src="/assets/smoke2.svg" alt="Humo" class="smoke" />
         <img src="/assets/rocket.svg" alt="Cohete" class="rocket" />
     </div>
@@ -83,7 +83,8 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
     .hero-button {
         margin-bottom: 60px;
         background: white;
-        color: #333333;
+        color: #ffff;
+        background: #2c7777;
         box-shadow: 3px 3px 8px rgb(0 0 0 / 37%);
         padding: 10px 20px;
         text-decoration: none;
@@ -95,8 +96,9 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
     }
 
     .hero-button:hover {
-        background: #418e9b;
-        color: white;
+        background: #9daeb8;
+
+        color: rgb(53, 51, 51);
     }
 
     .rocket-container {
@@ -137,7 +139,16 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
             width: 130px; /* Ajusta el tamaño del cohete */
         }
         .hero-content {
-            margin-bottom: -650px;
+            margin-bottom: -25%;
+        }
+        .hero-button {
+            margin-left: -5%;
+        }
+        p{
+            margin-left: -5%;
+        }
+        #hero{
+            padding: 15px 9px;
         }
     }
     @media (min-width: 1200px) and (max-width: 1440px) {
@@ -153,6 +164,12 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
         }
         .hero-content {
             margin-bottom: -460px;
+        }
+        .hero-button {
+            margin-left: -5%;
+        }
+        .p{
+            margin-left: -5%;
         }
     }
 
@@ -201,7 +218,7 @@ const { title, subtitle, buttonText, buttonLink } = Astro.props;
             background-position: center calc(30% - 50px); /* 🔹 Ajusta en pantallas grandes */
         }
         .hero-content {
-            margin-bottom: -40%;
+            margin-bottom: -35%;
         }
         .smoke {
             width: 180%;

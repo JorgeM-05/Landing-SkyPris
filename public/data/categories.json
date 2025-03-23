@@ -1,50 +1,97 @@
 {
-    "Chatbots": [
-      {
-        "title": "Plan Básico",
-        "description": ["Automatización con respuestas predefinidas.", "Otras descripciones."],
-        "price": "$9.99/mes",
-        "icon": "/assets/Plans/bot-basic.svg",
-        "isBest": false
-      },
-      {
-        "title": "Plan Pro",
-        "description": ["Chatbots con IA avanzada", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones."],
-        "price": "$19.99/mes",
-        "icon": "/assets/Plans/bot-standar.svg",
-        "isBest": true
-      },
-      {
-        "title": "Plan Premium",
-        "description": ["Integración con API"," personalización completa.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones.", "Otras descripciones."],
-        "price": "$29.99/mes",
-        "icon": "/assets/Plans/bot-premium.svg",
-        "isBest": false
-      }
-    ],
-    "E-commerce": [
-      {
-        "title": "Plan Básico",
-        "description": ["Tienda online estándar con plantillas."],
-        "price": "$19.99/mes",
-        "icon": "/assets/Plans/e-comerce-basic.svg",
-        "isBest": false
-      },
-      {
-        "title": "Plan Pro",
-        "description": ["Tienda con pasarela de pagos e integración de envíos."],
-        "price": "$39.99/mes",
-        "icon": "/assets/Plans/e-comerce-medio.svg",
-        "isBest": true
-      },
-      {
-        "title": "Plan Premium",
-        "description": ["Tienda con IA, automatización y marketing integrado."],
-        "price": "$59.99/mes",
-        "icon": "/assets/Plans/e-comerce-premium.svg",
-        "isBest": false
-      }
-    ]
-    
-  }
-  
+  "Chatbots": [
+    {
+      "title": "Essential Bot",
+      "description": [
+        "• Atención 24/7 sin interrupciones",
+        "• Conexión directa por WhatsApp",
+        "• Respuestas rápidas y precisas",
+        "• Hasta 20 productos/servicios",
+        "• Control manual cuando desees"
+      ],
+      "price": "$69.999/mes",
+      "oldPrice": "Antes: $139.999/mes",
+      "icon": "/assets/Plans/bot-basic.svg",
+      "isBest": false,
+      "linkPago": "https://mpago.li/1h8bh3P"
+    },
+    {
+      "title": "Advance Bot",
+      "description": [
+        "• Incluye todo lo del Essential",
+        "• IA para respuestas más humanas",
+        "• Hasta 50 productos/servicios",
+        "• Agendamiento y cancelación fácil",
+        "• Bonus: Responde notas de voz"
+      ],
+      "price": "$119.999/mes",
+      "oldPrice": "Antes: $219.999/mes",
+      "icon": "/assets/Plans/bot-standar.svg",
+      "isBest": true,
+      "linkPago": "https://mpago.li/1hACFZ3"
+    },
+    {
+      "title": "Elite Bot",
+      "description": [
+        "• Incluye todo lo del Advance",
+        "• Productos/servicios ilimitados",
+        "• Conversación por voz y texto",
+        "• Interacción en múltiples idiomas"
+      ],
+      "price": "$189.999/mes",
+      "oldPrice": "Antes: $289.999/mes",
+      "icon": "/assets/Plans/bot-premium.svg",
+      "isBest": false,
+      "linkPago": "https://mpago.li/29HEjdS"
+    }
+  ],
+  "E-commerce": [
+    {
+      "title": "Essential - Commerce",
+      "description": [
+        "• Tienda online estándar.",
+        "• Hasta 20 productos en tienda",
+        "• Captura pedido y datos envío",
+        "• Notificación por E-mail de pedido y factura",
+        "• Botón de contacto WhatsApp",
+        "• Página de contacto y redes",
+        "• Hosting y dominio gratis por 1 año"
+      ],
+      "price": "$799.999/mes",
+      "oldPrice": "Antes: $1'199.999/mes",
+      "icon": "/assets/Plans/e-comerce-basic.svg",
+      "isBest": false,
+      "linkPago": "https://mpago.li/2aW3XGT"
+    },
+    {
+      "title": "Advance - Commerce",
+      "description": [
+        "• Incluye todo del Essential",
+        "• Hasta 50 productos en catálogo",
+        "• Pasarela de pago incluida",
+        "• Envíos configurables fácilmente",
+        "• 5 correos personalizados"
+      ],
+      "price": "$1'339.999/mes",
+      "oldPrice": "Antes: $1'999.999/mes",
+      "icon": "/assets/Plans/e-comerce-medio.svg",
+      "isBest": true,
+      "linkPago": "https://mpago.li/1wfBEkH"
+    },
+    {
+      "title": "Elite - Commerce",
+      "description": [
+        "• Incluye todo del Advance",
+        "• Catálogo ilimitado hasta 70",
+        "• Múltiples pasarelas de pago",
+        "• 15 correos electrónicos",
+        "• Incluye Advance Bot"
+      ],
+      "price": "$2'699.999/mes",
+      "oldPrice": "Antes: $3'299.999/mes",
+      "icon": "/assets/Plans/e-comerce-premium.svg",
+      "isBest": false,
+      "linkPago": "https://mpago.li/2YWCwoS"
+    }
+  ]
+}

@@ -43,10 +43,14 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
                                     <p>{line}</p>
                                 ))}
                             </div>
-
-                            <span class="category-btn plan-price">
+                            <span class="price-old">{plan.oldPrice}</span>
+                            <a
+                                href={plan.linkPago}
+                                class="category-btn plan-price"
+                                target="_blank"
+                            >
                                 {plan.price}
-                            </span>
+                            </a>
                         </div>
                     ))}
                 </div>
@@ -96,6 +100,12 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
 
 <!-- ✅ Estilos Mejorados -->
 <style>
+    .price-old {
+        text-decoration: line-through;
+        text-decoration-thickness: 2px;
+        text-decoration-color: #266d76;
+    }
+
     /* 🔹 Contenedor Principal */
     #plans {
         text-align: center;
@@ -172,7 +182,6 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
             box-shadow 0.3s ease;
     }
 
-
     .plan-card.best-plan {
         background: linear-gradient(84deg, #288989, #2b5656);
         color: white;
@@ -180,7 +189,6 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         transform: scale(1.1);
         z-index: 10;
         box-shadow: 0 5px 15px rgb(40 96 118);
-        
     }
 
     .plan-card.best-plan .category-btn:hover {
@@ -213,6 +221,8 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
     }
 
     .plan-price {
+        text-decoration: none;
+        color: inherit;
         font-weight: bold;
         font-size: 1.3rem;
         display: block;
@@ -222,7 +232,7 @@ let selectedCategory = "Chatbots"; // 🔹 Categoría inicial
         border-radius: 8px;
     }
     .plan-description {
-        line-height: 1; /* Reduce el espacio entre líneas, puedes ajustar el valor */
+        line-height: 0.95; /* Reduce el espacio entre líneas, puedes ajustar el valor */
     }
 
     /* 🔹 Manejo de Visibilidad */

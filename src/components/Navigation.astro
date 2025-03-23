@@ -124,6 +124,7 @@ const { links } = Astro.props;
     -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
     transition: background 0.3s ease-in-out; /* Suaviza la transición */
   }
+  
 
   /* Estilos para versión móvil */
   @media (max-width: 769px) {
@@ -135,7 +136,7 @@ const { links } = Astro.props;
     }
 
     .nav-links {
-      position: absolute;
+      position: fixed;
       top: 105px;
       right: 0px;
       /* background: rgb(209 209 209 / 89%); */
@@ -144,7 +145,6 @@ const { links } = Astro.props;
       text-align: center;
       display: none;
     }
-    .nav-links,
     .nav-links.open {
       display: flex;
       backdrop-filter: blur(10px); /* Aplica el desenfoque */
@@ -152,6 +152,8 @@ const { links } = Astro.props;
       background: rgb(48 41 36 / 61%); /* Fondo semi-transparente */
       transition: background 0.3s ease-in-out; /* Suaviza la transición */
     }
+    .nav-links,
+    
 
     .nav-links li a {
       display: none;
@@ -165,8 +167,6 @@ const { links } = Astro.props;
     .navbar {
       width: 100%;
       position: fixed;
-      /* top: 20px;
-      left: 20px; */
       background: transparent;
       display: flex;
       justify-content: space-between;
@@ -199,12 +199,12 @@ const { links } = Astro.props;
       display: block;
     }
 
-    .navbar.scrolled,
-    .nav-links.scrolled{
-      backdrop-filter: blur(10px); /* Aplica el desenfoque */
-      -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
-      transition: background 0.3s ease-in-out; /* Suaviza la transición */
-    }
+    
+    /* .nav-links.scrolled{
+      backdrop-filter: blur(10px); /* Aplica el desenfoque *
+      -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari *
+      transition: background 0.3s ease-in-out; /* Suaviza la transición *
+    } */
   }
 
   /* Estilos base del icono */
