@@ -8,8 +8,11 @@ const { links } = Astro.props;
 
 <nav class="navbar">
   <div class="container">
-    <h1 class="logo">Sky<span class="pris">Pris</span></h1>
-    <!-- <a href="/" class="logo">Linkify</a> -->
+    <!-- <h1 class="logo">Sky<span class="pris">Pris</span></h1> -->
+    <h1 class="logo">
+      <img src="/assets/logoIcon.png" alt="Logo" class="logo-icon" />
+      Sky<span class="pris">Pris</span>
+    </h1>
 
     <!-- Botón Menú Hamburguesa con Lottie -->
     <button class="menu-toggle" id="menu-toggle">
@@ -46,7 +49,7 @@ const { links } = Astro.props;
 
 <style>
   .container {
-    padding: 0px 40px;
+    padding: 0px 60px;
   }
   .navbar {
     width: 100%;
@@ -63,12 +66,19 @@ const { links } = Astro.props;
 
   /* Asegurar que el logo esté alineado a la izquierda */
   .logo {
+    display: flex;
+    align-items: center;
     margin-right: auto;
-    font-size: 2.4rem;
-    text-shadow: 2px 2px 5px rgb(0 0 0 / 57%); /* Sombra */
+    font-size: 2.7rem;
+    text-shadow: 2px 2px 5px rgb(0 0 0 / 60%); /* Sombra */
   }
   .logo .pris {
     color: #288c8c; /* Cambia este color según lo que necesites */
+  }
+  .logo-icon {
+    filter: drop-shadow(2px 2px 5px rgb(0 0 0 / 60%));
+    height: 3.5rem;
+    margin-bottom: 0.2rem; /* Espacio entre imagen y texto */
   }
   /* Alinear los enlaces del navbar a la derecha */
   .nav-links {
@@ -76,7 +86,7 @@ const { links } = Astro.props;
     display: flex;
     gap: 1.5rem;
     margin-left: auto; /* Mueve los enlaces a la derecha */
-    padding-right: 110px;
+    /* padding-right: 110px; */
     color: rgb(170, 168, 168);
 
     display: flex;
@@ -118,13 +128,12 @@ const { links } = Astro.props;
 
   /* Cambiar el logo si es necesario */
   .navbar.scrolled,
-  .nav-links.scrolled{
+  .nav-links.scrolled {
     background: rgba(54, 47, 41, 0.4); /* Fondo semi-transparente */
     backdrop-filter: blur(10px); /* Aplica el desenfoque */
     -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari */
     transition: background 0.3s ease-in-out; /* Suaviza la transición */
   }
-  
 
   /* Estilos para versión móvil */
   @media (max-width: 769px) {
@@ -153,8 +162,6 @@ const { links } = Astro.props;
       transition: background 0.3s ease-in-out; /* Suaviza la transición */
     }
     .nav-links,
-    
-
     .nav-links li a {
       display: none;
       color: rgb(255, 255, 255);
@@ -199,12 +206,15 @@ const { links } = Astro.props;
       display: block;
     }
 
-    
-    /* .nav-links.scrolled{
-      backdrop-filter: blur(10px); /* Aplica el desenfoque *
-      -webkit-backdrop-filter: blur(10px); /* Compatibilidad con Safari *
-      transition: background 0.3s ease-in-out; /* Suaviza la transición *
-    } */
+    .logo {
+      left: 1rem;
+      top: 1rem;
+      font-size: 1.9rem;
+    }
+
+    .logo-icon {
+      height: 2.0rem;
+    }
   }
 
   /* Estilos base del icono */
